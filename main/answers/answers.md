@@ -84,7 +84,7 @@ Add any SQL schema changes here
 
 SELECT *
 FROM leaddetail
-WHERE datecolumn >= DATEADD(minutes,-1,GETDATE())
+WHERE datecolumn >= DATEADD(minutes,-1,GETDATE());
 
 ### 9. SignalR (40m)
 	public  class  SampleHub : Hub
