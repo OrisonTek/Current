@@ -81,9 +81,10 @@ Make sure that the WebHost calls the ServiceHost via REST.
 Add any SQL schema changes here
 
 ### 8. Poll DB (15m)
-Add any SQL schema changes here
 
-Make changes ServiceHost
+SELECT *
+FROM leaddetail
+WHERE datecolumn >= DATEADD(minutes,-1,GETDATE())
 
 ### 9. SignalR (40m)
 	public  class  SampleHub : Hub
