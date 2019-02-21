@@ -28,22 +28,6 @@ namespace JAG.DevTest2019.Host.Models
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-
-
-
-
-        /*
-         [Required(ErrorMessage = "First Name is required")]
-        public string FirstName { get; set; }
-
-         * FirstName is required
-	* LastName is required
-	* ContactNumber is required
-	* Email address should be a value email address
-	* ContactNumber should be a valid telephone number
-
-             */
-
         [Display(Name = "Surname")]
         public string Surname { get; set; }
 

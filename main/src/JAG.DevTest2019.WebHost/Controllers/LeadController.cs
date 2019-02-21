@@ -18,9 +18,26 @@ namespace JAG.DevTest2019.Host.Controllers
 
         public ActionResult SubmitLead(LeadViewModel model)
         {
-            //TODO: 6. Call the WebAPI service here & pass results to UI
+           /* //TODO: 6. Call the WebAPI service here & pass results to UI
+            //Post: api/home
+        [HttpPost]
+        public string Post([FromBody] postModelData obj)
+        {
+            string myObj = "Success";
+            return myObj.ToString();
+        }
 
-            LeadViewModel result = new LeadViewModel()
+        //Get: api
+        [HttpGet]
+        public string Get(int id)
+        {
+            string myObj = ""
+               return myObj.toString();
+        }*/
+
+
+
+        LeadViewModel result = new LeadViewModel()
             {
                 Results = new LeadResultViewModel()
                 {

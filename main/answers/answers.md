@@ -86,7 +86,28 @@ Add any SQL schema changes here
 Make changes ServiceHost
 
 ### 9. SignalR (40m)
-Add any SQL schema changes here
+	public  class  SampleHub : Hub
+	{
+	     // Use this variable to track user count
+	     private  static  int _userCount = 0;
+	
+	     // Public hub methods  
+	    :
+	 
+	     // Overridable hub methods  
+	     public  override Task OnConnected()
+	    {
+	       _userCount ++;
+	    }
+	     public  override Task OnReconnected()
+	    {
+	        _userCount ++;
+	    }
+	     public  override Task OnDisconnected(bool stopCalled)
+	    {
+	       _userCount --;
+	    }
+	}
 
 ### 10. Data Analysis (30m)
 
@@ -116,10 +137,16 @@ from #profit
 **Answer**
 
 **SQL**
-`Select....`
+	/*Number 4*/
+	select sum(issold)/sum(isaccepted) from leaddetail
+
 
 5) Pick 2 clients based on Profit & Conversion rate & Why?
 **Answer**
 
 **SQL**
-`Select....`
+
+	
+
+	SELECT DISTINCT TOP (2) (earnings-cost)
+                         FROM   leaddetail
