@@ -3,18 +3,22 @@
 
 ### 1. SEO (5min)
 
-1) add here
+1) Properly define metakeywords properties
 
-2) add here
+#MetaKeywords="JAGWEB LEADS WEBSITE "
 
-3) add here
+2) Properly define metadescription properties
 
-4) add here
+#MetaDescription="This page contains information about insurance covers and companies"
 
-### 2. Responsive (15m)
+3)  URL Routing support for ASP.NET Web Forms 
 
-1. Installed bootstrap for projects in the solution
-2. Declared a header section of the asp.net index file with reference to bootstrap files listed below 
+4)  Response.RedirectPermanent() method 
+
+### 2. Responsive (15m) 
+
+# 2.1 Installed bootstrap for projects in the solution
+# 2.2 Declared a header section of the asp.net index file with reference to bootstrap files listed below 
 
 <head runat="server">
 
@@ -25,17 +29,48 @@
 
 
 ### 3. Validation (15m)
-Add any special implemetation instructions here.
 
 My name is @Html.TextBoxFor(model => model.FirstName, new { @placeholder = Html.DisplayNameFor(model => model.FirstName), @required = "FirstName is required" }) @Html.TextBoxFor(model => model.Surname, new { @placeholder = Html.DisplayNameFor(model => model.Surname), @required = "LastName is required" })
 You can contact me at @Html.TextBoxFor(model => model.EmailAddress, new { @placeholder = Html.DisplayNameFor(model => model.EmailAddress), @required = "Email address should be a value email address" }) or @Html.TextBoxFor(model => model.ContactNumber, new { @placeholder = Html.DisplayNameFor(model => model.ContactNumber), @required = "ContactNumber should be a valid telephone number" })
 to help me save on insurance
 
 ### 4. JavaScript (20m)
-Add any special implemetation instructions here.
+
+<div id="counter"></div>
+
+    <script>
+	var n = localStorage.getItem('on_load_counter');
+   
+    if (n === null) {
+        n = 0;
+    }
+    
+	if ( n <6000000)
+	{
+	n = 6000000+n;
+	}
+    n++;
+
+    localStorage.setItem("on_load_counter", n);
+
+    document.getElementById('counter').innerHTML = n;
+    </script>
+
 
 ### 5. Ajax calls (30m)
-Add any special implemetation instructions here.
+# Ajax call on submission
+$("#theForm").ajaxForm({url: 'server.php', type: 'post'})
+
+# Disable the button while processing the Ajax call
+$("#ajaxStart").attr("disabled", true); 
+                   
+# Global start and stop to  display an Ajax loader while the call is running
+$('#loading-image').bind('ajaxStart', function(){
+    $(this).show();
+}).bind('ajaxStop', function(){
+    $(this).hide();
+});
+
 
 ### 6. Call a REST webservice (25m)
 Add any special implemetation instructions here.
@@ -56,22 +91,26 @@ Add any SQL schema changes here
 ### 10. Data Analysis (30m)
 
 1) Total Profit
-**Answer**
 
-**SQL**
-`Select....`
+select sum(earnings)earnings,
+       sum(cost)cost 
+	   into #profit
+from leaddetail
+
+select earnings , cost, (earnings - cost)profits
+from #profit 
 
 2) Total Profit (Earnings less VAT)
 **Answer**
 
-**SQL**
-`Select....`
+select ((earnings-(earnings*0.15))+cost)REprofit
+from #profit
 
 3) Profitable campaigns
 **Answer**
 
-**SQL**
-`Select....`
+	select distinct campaignid from 
+	leaddetail where (earnings - cost) >0
 
 4) Average conversion rate
 **Answer**
